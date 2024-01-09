@@ -52,3 +52,61 @@
 3. task test
 
 ## Escrevendo o teste
+* AAA
+
+
+# Parte 2 
+
+## Pydantic e a validação de dados
+* Para que o Pydantic suporte a validação de emails, é necessário instalar o pydantic[email]
+1. poetry add "pydantic[email]"
+
+## Implementação do CRUD
+* no código. :>
+
+# Parte 3
+
+## Configurando o Banco de Dados e Gerenciando Migrações com Alembic
+* SQLAlchemy: ORM para sql
+* pydantic-settings: gerenciar as configurações do app
+
+## Configurações de ambiente e os 12 fatores
+1. poetry add sqlalchemy
+2. poetry add pydantic-settings
+
+## Configurações do banco de dados:
+1. criar um arquivo de models: touch fast_zero/models.py
+2. fazer teste das tabelas: em tests/conftest.py, função def session()
+3. criar arquivo para testar tabela: em tests/test_db.py
+4. task test
+
+## Configurar ambiente do banco
+1. arquivo de configurações: touch fast_zero/settings.py
+2. criar .env: DATABASE_URL="sqlite:///database.db"
+
+## Instalando o Alembic e Criando a Primeira Migração
+1. instalação: poetry add alembic
+2. iniciar alembic: alembic init migrations
+3. alterações para o migrations/env.py:
+```
+    # ...
+    from alembic import context
+    from fast_zero.settings import Settings
+    from fast_zero.models import Base
+
+    config = context.config
+    config.set_main_option('sqlalchemy.url', Settings().DATABASE_URL)
+
+    if config.config_file_name is not None:
+        fileConfig(config.config_file_name)
+
+    target_metadata = Base.metadata
+
+    # ...
+```
+
+4. criar uma migração: alembic revision --autogenerate -m "create users table"
+5. executa a migração:
+    1. sqlite3 database.db
+    2. .schema e .exit
+6. alembic upgrade head

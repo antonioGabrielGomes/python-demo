@@ -110,3 +110,14 @@
     1. sqlite3 database.db
     2. .schema e .exit
 6. alembic upgrade head
+
+
+# Parte 4
+
+## Integrando Banco de Dados a API
+1. criar arquivo: database.py  (verificar que ficou dentro de fast_zero/database.py)
+2. Injeção de dependências: Depends - FastApi
+3. Alteração dos endpoint
+
+
+# Parte 5

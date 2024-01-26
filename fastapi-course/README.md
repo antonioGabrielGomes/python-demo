@@ -121,3 +121,10 @@
 
 
 # Parte 5
+
+## Autenticação e Autorização com JWT
+1. Gerando tokens JWT: poetry add "python-jose[cryptography]" "passlib[bcrypt]"
+2. gerar arquivo security.py
+3. criar schema para token
+
+

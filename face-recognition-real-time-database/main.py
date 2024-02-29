@@ -1,12 +1,30 @@
+import cv2
+import os
 
-def print_hi(name):
-    print(f'Hi, {name}')
+cap = cv2.VideoCapture(0)
+cap.set(3, 640)
+cap.set(4, 480)
 
-if __name__ == '__main__':
-    print_hi('face')
+imgBackground = cv2.imread('Resources/background.png')
+
+folderModePath = 'Resources/Modes'
+modePathList = os.listdir(folderModePath)
+imgModeList = []
+
+for path in modePathList:
+    imgModeList.append(cv2.imread(os.path.join(folderModePath, path)))
 
 
+while True:
+    success, img = cap.read()
 
-https://www.youtube.com/watch?v=iBomaK2ARyI
+    if not success:
+        break
 
-16:48s
+    imgBackground[162:162+480,55:55+640] = img
+    imgBackground[44:44+633,808:808+414] = imgModeList[3]
+
+
+    # cv2.imshow("Webcam", img)    
+    cv2.imshow("Face Attendance", imgBackground)
+    cv2.waitKey(1)

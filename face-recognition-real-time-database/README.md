@@ -11,7 +11,7 @@
 
 3. Script to run:
     * $ mkdir venv
-    * $ virtualenv -p /usr/bin/python3.11 venv/
+    * $ python3 -m venv venv/
     * $ source venv/bin/activate
     * to deactivate: $ deactivate
     * pip install -r requirements.txt

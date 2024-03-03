@@ -63,3 +63,4 @@ while True:
     cv2.imshow("Face Attendance", imgBackground)
     cv2.waitKey(1)
 
+#1:00:32   ->    https://www.youtube.com/watch?v=iBomaK2ARyI&list=WL&index=3&t=2830s

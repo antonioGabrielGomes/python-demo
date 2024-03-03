@@ -1,0 +1,12 @@
+## audios create
+
+POST http://localhost:5000/audios HTTP/1.1
+content-type: application/json
+
+{
+    "text": "sample text example sample"
+}
+
+
+
+### rest client: https://github.com/Huachao/vscode-restclient
